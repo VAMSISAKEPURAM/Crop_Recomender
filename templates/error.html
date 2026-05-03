@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="card auth-card error-page">
+        <div class="auth-header">
+            <div class="logo-circle error-circle">❌</div>
+            <h2>System Error</h2>
+            <p>{{ error }}</p>
+        </div>
+        
+        <div class="mt-4">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary full-width">Return to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

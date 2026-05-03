@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-text">
+        <h1>Intelligent Crop Recommendation</h1>
+        <p>Optimize your yield by making data-driven agricultural decisions. Enter your soil and environmental metrics below to get an instant AI-powered crop recommendation.</p>
+    </div>
+</div>
+
+<div class="dashboard-grid">
+    <div class="card form-card">
+        <h2>Input Parameters</h2>
+        <form id="prediction-form" class="crop-form">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="N">Nitrogen (N) Content</label>
+                    <input type="number" id="N" name="N" required min="0" step="any" placeholder="e.g., 90">
+                </div>
+                
+                <div class="input-group">
+                    <label for="P">Phosphorus (P) Content</label>
+                    <input type="number" id="P" name="P" required min="0" step="any" placeholder="e.g., 42">
+                </div>
+                
+                <div class="input-group">
+                    <label for="K">Potassium (K) Content</label>
+                    <input type="number" id="K" name="K" required min="0" step="any" placeholder="e.g., 43">
+                </div>
+                
+                <div class="input-group">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="number" id="temperature" name="temperature" required step="any" placeholder="e.g., 20.8">
+                </div>
+                
+                <div class="input-group">
+                    <label for="humidity">Humidity (%)</label>
+                    <input type="number" id="humidity" name="humidity" required min="0" max="100" step="any" placeholder="e.g., 82.0">
+                </div>
+                
+                <div class="input-group">
+                    <label for="pH">Soil pH Output</label>
+                    <input type="number" id="pH" name="pH" required min="0" max="14" step="any" placeholder="e.g., 6.5">
+                </div>
+                
+                <div class="input-group">
+                    <label for="rainfall">Rainfall (mm)</label>
+                    <input type="number" id="rainfall" name="rainfall" required min="0" step="any" placeholder="e.g., 202.9">
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary submit-btn" id="submit-btn">
+                <span class="btn-text">Predict Optimal Crop</span>
+                <span class="loader" style="display: none;"></span>
+            </button>
+        </form>
+    </div>
+
+    <div class="card result-card" id="result-container" style="display: none;">
+        <div class="result-header">
+            <h2>Analysis Result</h2>
+            <div class="status-badge success">Complete</div>
+        </div>
+        <div class="result-body">
+            <div class="crop-display">
+                <p>The recommended crop for your environment is:</p>
+                <h3 id="crop-name" class="crop-name">Loading...</h3>
+            </div>
+            
+            <div class="suggestion-box">
+                <h4>Recommendation Insights</h4>
+                <p id="crop-details">Based on the uploaded parameters, this crop provides the optimal growth probability and maximizes potential agricultural yield.</p>
+            </div>
+            <button class="btn btn-outline reset-btn" onclick="resetForm()">Analyze New Sample</button>
+        </div>
+    </div>
+    
+    <div class="card error-card" id="error-container" style="display: none;">
+        <div class="error-header">
+            <span class="icon">⚠️</span>
+            <h2>System Alert</h2>
+        </div>
+        <p id="error-message">An error occurred.</p>
+    </div>
+</div>
+{% endblock %}

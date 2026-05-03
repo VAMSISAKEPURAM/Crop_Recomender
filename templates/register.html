@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="card auth-card">
+        <div class="auth-header">
+            <div class="logo-circle">📝</div>
+            <h2>System Registration</h2>
+            <p>Create a new AgroAI researcher account</p>
+        </div>
+        
+        {% if error %}
+        <div class="alert alert-error">
+            {{ error }}
+        </div>
+        {% endif %}
+        
+        <form method="POST" action="{{ url_for('register') }}" class="auth-form">
+            <div class="input-group">
+                <label for="username">Desired Username</label>
+                <input type="text" id="username" name="username" required autocomplete="username" autofocus placeholder="Choose a unique username">
+                <small class="help-text">Must be unique across the platform</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Secure Password</label>
+                <input type="password" id="password" name="password" required autocomplete="new-password" placeholder="Choose a strong password">
+            </div>
+            
+            <button type="submit" class="btn btn-primary full-width mt-4">Complete Registration</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Already registered? <a href="{{ url_for('login') }}" class="text-link">Return to login</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
