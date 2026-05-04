@@ -9,7 +9,7 @@ A full-stack **Crop Recommendation Web Application** powered by **Machine Learni
 ```
 crop-app/
 │
-├── app.py                      # Flask application entry point & API routes
+├── app.py                      # Flask  application entry point & API routes
 ├── generate_model.py           # Script to train & save the ML model
 ├── requirements.txt            # Python dependencies
 ├── users.db                    # SQLite database (auto-created on first run)
