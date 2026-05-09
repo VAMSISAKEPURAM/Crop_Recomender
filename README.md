@@ -4,7 +4,7 @@ A full-stack **Crop Recommendation Web Application** powered by **Machine Learni
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ Project Structure 
 
 ```
 crop-app/
